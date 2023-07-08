@@ -1,6 +1,7 @@
 import {
   Box,
   Container,
+  Grid,
   Paper,
   ThemeProvider,
   Typography,
@@ -18,7 +19,12 @@ import Countdown from "react-countdown";
 
 const Offer = () => {
   const countDownStyle = {
-    padding: "15px",
+    width: "60px",
+    height: "60px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    // padding: "15px",
     fontSize: "1.4rem",
     border: "1px solid #f4f4f4",
     borderRadius: "5px",
@@ -81,10 +87,20 @@ const Offer = () => {
     } else {
       // Render a countdown
       return (
-        <Box sx={{  marginTop: "3rem"}}>
-          <Box sx={{padding:"1rem 0"}}>
-          <Typography sx={{textTransform:"uppercase",fontWeight:"500", fontSize:"2rem"}}>Qabul yopilishi</Typography>
-          <p style={{margin:"1rem 0", color:"#aaa"}}>Bizga qo'shiling va ingliz tilini tez va sifatli o'rganing!</p>
+        <Box sx={{ marginTop: "3rem" }}>
+          <Box sx={{ padding: "1rem 0" }}>
+            <Typography
+              sx={{
+                textTransform: "uppercase",
+                fontWeight: "500",
+                fontSize: "2rem",
+              }}
+            >
+              Qabul yopilishi
+            </Typography>
+            <p style={{ margin: "1rem 0" }}>
+              Bizga qo'shiling va ingliz tilini tez va sifatli o'rganing!
+            </p>
           </Box>
           <Box
             sx={{
@@ -110,16 +126,20 @@ const Offer = () => {
   return (
     <Container>
       <ThemeProvider theme={theme}>
-        <Box
+        <Grid
+          container
           mt={"4rem"}
-          p={"0 2rem"}
+          // p={"0 2rem"}
           mb={4}
           width={"100%"}
           display={"flex"}
-          flexWrap={"wrap"}
           justifyContent={"space-between"}
         >
-          <Box
+          <Grid
+            item
+            lg={6}
+            md={6}
+            sm={12}
             display={"flex"}
             flexDirection={"column"}
             sx={{ width: "50%", flexWrap: "wrap" }}
@@ -145,7 +165,8 @@ const Offer = () => {
             <Box
               display={"flex"}
               flexWrap={"wrap"}
-              justifyContent={"space-between"}
+              justifyContent={"center"}
+              gap={"2rem"}
             >
               <Paper className="offer-paper" sx={{ width: "260px" }}>
                 <Box className="offer nchild1" position={"relative"}>
@@ -198,18 +219,19 @@ const Offer = () => {
                 </Box>
               </Paper>
             </Box>
-          </Box>
-          <Box width={"40%"}>
+          </Grid>
+          {/* Right side  banner */}
+          <Grid item lg={6} md={6} sm={12} width={"40%"}>
             <Box
               display={"flex"}
               flexDirection={"column"}
-              alignItems={"center"}
+              alignItems={"flex-end"}
               sx={{ marginTop: "-150px" }}
             >
               <Box
-                width={"100%"}
+                sx={{ width: { lg: "450px", md: "400px" } }}
                 bgcolor={"#fff"}
-                zIndex={"100000000"}
+                zIndex={"10"}
                 borderRadius={"7px"}
                 padding={"2rem 2.2rem"}
               >
@@ -292,14 +314,11 @@ const Offer = () => {
                   </Box>
                 </Box>
                 <button className="submit-button"> YUBORISH </button>
-                <Countdown
-                  date={Date.now() + 800000000}
-                  renderer={renderer}
-                />
+                <Countdown date={Date.now() + 80000000} renderer={renderer} />
               </Box>
             </Box>
-          </Box>
-        </Box>
+          </Grid>
+        </Grid>
       </ThemeProvider>
     </Container>
   );

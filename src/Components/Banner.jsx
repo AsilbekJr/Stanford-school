@@ -2,20 +2,24 @@ import {
   Box,
   IconButton,
   ThemeProvider,
+  Typography,
   createTheme,
+  useMediaQuery,
 } from "@mui/material";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import { Close, Menu } from "@mui/icons-material";
-import "../styles/Banner.css"
+import "../styles/Banner.css";
+
 const Banner = () => {
+  const [scrollTop, setScrollTop] = useState(0);
   const [value, setValue] = React.useState("one");
   const [click, setClick] = React.useState(false);
   const theme = createTheme({
     typography: {
       fontFamily: '"Montserrat", "sans-serif"',
-      fontSize: "2rem",
+      fontSize: 2,
     },
   });
   const handleChange = (event, newValue) => {
@@ -30,24 +34,37 @@ const Banner = () => {
       color: "#000",
     },
   };
+
+  const matches = useMediaQuery("(max-width:939px)");
+  useEffect(() => {
+    const handleScroll = (event) => {
+      setScrollTop(window.scrollY);
+    };
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
     <ThemeProvider theme={theme}>
-      <Box sx={{ position: "relative" }}>
+      <Box sx={{ position: "relative", height: "100%" }}>
         <Box
           width={"100%"}
-          height="90vh"
           sx={{
             display: "flex",
-            background: "#8A49AA",
             background: "linear-gradient(135deg, #8A49AA, #D25CA4)",
-            width: "100%", 
+            width: "100%",
             borderLeft: "25px solid #fff",
             borderRight: "25px solid #fff",
             padding: "0px 0 0 20px",
           }}
         >
           <Box
-            width={"55%"}
+            sx={{
+              width: { lg: "55%", md: "55%", sm: "95%", xs: "95%" },
+              height: "auto",
+            }}
             display={"flex"}
             alignItems={"center"}
             justifyContent={"center"}
@@ -58,14 +75,22 @@ const Banner = () => {
               alignItems={"center"}
               justifyContent={"center"}
               flexDirection={"column"}
-              width={"75%"}
               color="#fff"
+              sx={{
+                py: { lg: "4rem", md: "3rem", sm: "3rem", xs: "3rem" },
+                width: { lg: "75%", md: "75%", sm: "100%", xs: "100%" },
+              }}
             >
               <Box>
                 <img src="./Img/english.png" />
-                <p
-                  style={{
-                    fontSize: "1.3rem",
+                <Typography
+                  sx={{
+                    fontSize: {
+                      lg: "1.3rem",
+                      md: "1rem",
+                      sm: "1rem",
+                      xs: "1rem",
+                    },
                     fontWeight: "300",
                     marginBottom: "2rem",
                   }}
@@ -73,80 +98,112 @@ const Banner = () => {
                   Til markazimiz barcha yoshdagi va bilim darajalari uchun
                   ingliz va boshqa zamonaviy tillarda guruh va shaxsiy darslarni
                   taklif etadi.
-                </p>
+                </Typography>
               </Box>
-              <h1
-                style={{
-                  fontSize: "4.8rem",
+              <Typography
+                variant="h1"
+                sx={{
+                  fontSize: {
+                    lg: "4.5rem",
+                    md: "3rem",
+                    sm: "2rem",
+                    xs: "1.5rem",
+                  },
                   textAlign: "center",
                   textTransform: "uppercase",
+                  fontWeight: "900",
                 }}
               >
                 <span style={{ fontWeight: "400" }}>Ingliz tili</span>{" "}
                 mahoratingizni oshiring
-              </h1>
+              </Typography>
             </Box>
           </Box>
 
-          <Box width={"45%"} height={'100%'}  display={"flex"} alignItems={"flex-end"} position="relative" className="hello">
+          <Box
+            sx={{ width: { lg: "45%", md: "45%", sm: "0%", xs: "0%" } }}
+            height={"100%"}
+            display={"block"}
+            alignItems={"flex-end"}
+            // position="relative"
+            // className="hello"
+          >
             {/* Sticky menu */}
-            <Box className="dropMenuContainer">
-              <Box
-                sx={{ background: "#FFE79B", height: "100%" }}
-                className={click ? "dropMenu" : "dropdown"}
-              >
-                <Box sx={{ width: "100%" }}>
-                  <Tabs
-                    value={value}
-                    onChange={handleChange}
-                    textColor="secondary"
-                    indicatorColor="secondary"
-                    aria-label="secondary tabs example"
-                    TabIndicatorProps={{
-                      sx: {
-                        height: "3.5px",
-                        background: "#000",
-                      },
-                    }}
+            {!matches && scrollTop <= 100 && (
+              <Box className="dropMenuContainer">
+                <Box
+                  sx={{ background: "#FFE79B", height: "100%" }}
+                  className={click ? "dropMenu" : "dropdown"}
+                >
+                  <Box sx={{ width: "100%" }}>
+                    <Tabs
+                      value={value}
+                      onChange={handleChange}
+                      textColor="secondary"
+                      indicatorColor="secondary"
+                      aria-label="secondary tabs example"
+                      TabIndicatorProps={{
+                        sx: {
+                          height: "3.5px",
+                          background: "#000",
+                        },
+                      }}
+                    >
+                      <Tab
+                        sx={CustomTabContainer}
+                        value="one"
+                        label="BOSH SAHIFA"
+                      />
+                      <Tab
+                        sx={CustomTabContainer}
+                        value="two"
+                        label="QULAYLIKLAR"
+                      />
+                      <Tab
+                        sx={CustomTabContainer}
+                        value="three"
+                        label="BOG'LANISH"
+                      />
+                    </Tabs>
+                  </Box>
+                </Box>
+
+                <Box
+                  sx={{ background: "#FFE79B" }}
+                  display={"flex"}
+                  alignItems={"center"}
+                  height={"100%"}
+                >
+                  <IconButton
+                    onClick={() => setClick(!click)}
+                    variant="outlined"
                   >
-                    <Tab
-                      sx={CustomTabContainer}
-                      value="one"
-                      label="BOSH SAHIFA"
-                    />
-                    <Tab
-                      sx={CustomTabContainer}
-                      value="two"
-                      label="QULAYLIKLAR"
-                    />
-                    <Tab
-                      sx={CustomTabContainer}
-                      value="three"
-                      label="BOG'LANISH"
-                    />
-                  </Tabs>
+                    {click ? (
+                      <Close sx={{ fontSize: "50px", color: "#000" }} />
+                    ) : (
+                      <Menu sx={{ fontSize: "50px", color: "#000" }} />
+                    )}
+                  </IconButton>
                 </Box>
               </Box>
-              <Box
-                sx={{ background: "#FFE79B" }}
-                display={"flex"}
-                alignItems={"center"}
-                height={"100%"}
-              >
-                <IconButton onClick={() => setClick(!click)} variant="outlined">
-                  {click ? (
-                    <Close sx={{ fontSize: "50px", color: "#000" }} />
-                  ) : (
-                    <Menu sx={{ fontSize: "50px", color: "#000" }} />
-                  )}
-                </IconButton>
-              </Box>
+            )}
+            <Box
+              sx={{
+                display: { lg: "flex", md: "flex", sm: "none", xs: "none" },
+                alignItems: "flex-end",
+                justifyContent: "end",
+                position: { sm: "absolute" },
+                right: "25px",
+                bottom: "0",
+                width: { lg: "500px", md: "400px", sm: "350px" },
+              }}
+            >
+              <img
+                src="./Img/banner.png"
+                style={{ width: "100%", objectFit: "contain" }}
+                alt="banner"
+              />
             </Box>
-            <img
-              src="./Img/banner.png"
-              style={{ width: "100%", objectFit:"contain" }}
-              alt="banner"
-            />
           </Box>
         </Box>
       </Box>
