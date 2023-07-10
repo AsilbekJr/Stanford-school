@@ -150,6 +150,7 @@ const Offer = () => {
       }}
     >
       <ThemeProvider theme={theme}>
+        {/* main container grid */}
         <Grid
           container
           mt={"4rem"}
@@ -166,6 +167,7 @@ const Offer = () => {
             },
           }}
         >
+          {/* Main item 1 */}
           <Grid
             item
             lg={6}
@@ -298,8 +300,9 @@ const Offer = () => {
               </Grid>
             </Grid>
           </Grid>
+          {/* End  Main item 1 */}
 
-          {/* Right side  banner */}
+          {/*Main item 2 */}
 
           <Grid item lg={6} md={6} sm={12} xs={12}>
             <Box
@@ -322,13 +325,14 @@ const Offer = () => {
                 },
               }}
             >
+              {/* Main item container */}
               <Grid
                 container
                 spacing={5}
                 sx={{
                   marginRight: "auto",
                   marginLeft: "auto",
-                  maxWidth: { lg: "450px", md: "380px", sm: "300" },
+                  width: "100%",
                   display: "flex",
                   justifyContent: {
                     lg: "center",
@@ -482,8 +486,10 @@ const Offer = () => {
                   <Countdown date={Date.now() + 80000000} renderer={renderer} />
                 </Grid>
               </Grid>
+              {/* End Main item container */}
             </Box>
           </Grid>
+          {/* End  Main item 2 */}
         </Grid>
       </ThemeProvider>
     </Box>
