@@ -1,125 +1,144 @@
-:root{
-  --primary-color:#c539b4;
+:root {
+  --primary-color: #c539b4;
 }
-.offer-paper{
-    margin-bottom: 2rem;
-  
-  }
-  
-  
-  .nchild1{
-    width: 100%;
-    overflow: hidden;
-    height: 280px;
-    background:linear-gradient(0deg, rgba(45, 32, 39, 0.259), rgba(21, 17, 17, 0.273)), url('https://media.1istochnik.ru/attachments/istochnik/publications/11/114250/large_1644909363-526fb60757.jpeg');
-    background-size: cover;
-    border-radius: 5px;
-    transition: all .6s;
+.offer-paper {
+  margin-bottom: 2rem;
+}
+
+.nchild1 {
+  width: 100%;
+  overflow: hidden;
+  height: 280px;
+  background: linear-gradient(
+      0deg,
+      rgba(45, 32, 39, 0.259),
+      rgba(21, 17, 17, 0.273)
+    ),
+    url("https://media.1istochnik.ru/attachments/istochnik/publications/11/114250/large_1644909363-526fb60757.jpeg");
+  background-size: cover;
+  border-radius: 5px;
+  transition: all 0.6s;
   background-position: top;
-  }
-  .nchild2{
-    width: 100%;
-    overflow: hidden;
-    height: 280px;
-    background:linear-gradient(0deg, rgba(45, 32, 39, 0.259), rgba(21, 17, 17, 0.273)), url('https://cloudfront-us-east-1.images.arcpublishing.com/advancelocal/55W543JDRNFZ3JD2TYRCHIABDY.jpg');
-    background-size: cover;
-    border-radius: 5px;
-    transition: all .6s;
+}
+.nchild2 {
+  width: 100%;
+  overflow: hidden;
+  height: 280px;
+  background: linear-gradient(
+      0deg,
+      rgba(45, 32, 39, 0.259),
+      rgba(21, 17, 17, 0.273)
+    ),
+    url("https://cloudfront-us-east-1.images.arcpublishing.com/advancelocal/55W543JDRNFZ3JD2TYRCHIABDY.jpg");
+  background-size: cover;
+  border-radius: 5px;
+  transition: all 0.6s;
   background-position: top;
-  }
-  .nchild3{
-    width: 100%;
-    overflow: hidden;
-    height: 280px;
-    background:linear-gradient(0deg, rgba(45, 32, 39, 0.259), rgba(21, 17, 17, 0.273)), url('https://totallydigitalmarketing.files.wordpress.com/2018/02/cropped-digitalworkspace-650x350.jpg?w=1200');
-    background-size: cover;
-    border-radius: 5px;
-    transition: all .6s;
-    background-position: top;
-  }
-  .nchild4{
-    width: 100%;
-    overflow: hidden;
-    height: 280px;
-    background:linear-gradient(0deg, rgba(45, 32, 39, 0.259), rgba(21, 17, 17, 0.273)), url('https://ttol.vietnamnetjsc.vn/images/2022/04/26/07/35/day-tre1ava.jpg');
-    background-size: cover;
-    border-radius: 5px;
-    transition: all .6s;
+}
+.nchild3 {
+  width: 100%;
+  overflow: hidden;
+  height: 280px;
+  background: linear-gradient(
+      0deg,
+      rgba(45, 32, 39, 0.259),
+      rgba(21, 17, 17, 0.273)
+    ),
+    url("https://totallydigitalmarketing.files.wordpress.com/2018/02/cropped-digitalworkspace-650x350.jpg?w=1200");
+  background-size: cover;
+  border-radius: 5px;
+  transition: all 0.6s;
   background-position: top;
-  }
-  .offer:hover{
-   background-position: center;
+}
+.nchild4 {
+  width: 100%;
+  overflow: hidden;
+  height: 280px;
+  background: linear-gradient(
+      0deg,
+      rgba(45, 32, 39, 0.259),
+      rgba(21, 17, 17, 0.273)
+    ),
+    url("https://ttol.vietnamnetjsc.vn/images/2022/04/26/07/35/day-tre1ava.jpg");
+  background-size: cover;
+  border-radius: 5px;
+  transition: all 0.6s;
+  background-position: top;
+}
+.offer:hover {
+  background-position: center;
   /* transform: scale(.9); */
-  }
-  .offer .offerTitle{
-    position: absolute;
-    top:40px;
-    padding: 0 30px;
-    color:#fff;
-    font-size: 1.4rem;
-    transition: all .6s;
-  }
-  .offer .offerTitle h3{
-    font-weight: 600;
-    margin: 1rem 0;
-  }
-  .offer .offerTitle p{
-    font-size: .9rem;
-  }
-  .offer:hover .offerTitle{
-    top: -10px;
-  }
-  
-  .offer .modal{
-    position: absolute;
-    bottom: 0;
-    opacity: 0;
-    transform: translateY(100px);
-    background-color: #fff;
-    padding: 30px;
-    transition: all .6s;
-  }
-  .offer:hover .modal{
-    transform: translateY(0);
-    opacity: 1;
-  }
-.offer-btn{
+}
+.offer .offerTitle {
+  position: absolute;
+  top: 40px;
+  padding: 0 30px;
+  color: #fff;
+  font-size: 1.4rem;
+  transition: all 0.6s;
+}
+.offer .offerTitle h3 {
+  font-weight: 600;
+  margin: 1rem 0;
+}
+.offer .offerTitle p {
+  font-size: 0.9rem;
+}
+.offer:hover .offerTitle {
+  top: -10px;
+}
+
+.offer .modal {
+  position: absolute;
+  bottom: 0;
+  opacity: 0;
+  transform: translateY(100px);
+  background-color: #fff;
+  padding: 30px;
+  transition: all 0.6s;
+}
+.offer:hover .modal {
+  transform: translateY(0);
+  opacity: 1;
+}
+.offer-btn {
   outline: none;
   border: none;
-  padding: 15px 25px;
-  font-size: 1.1rem;
-  font-weight: 700;
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
   border-radius: 5px;
-transition: all .4s ease;
-cursor: pointer;
+  transition: all 0.4s ease;
+  cursor: pointer;
 }
-.offer-btn:hover{
-background-color: var(--primary-color);
-color:#fff;
+
+.offer-btn:hover {
+  background-color: var(--primary-color);
+  color: #fff;
 }
-.inputItem{
+.inputItem {
   display: flex;
   align-items: flex-end;
   padding-bottom: 1rem;
-  
-
 }
 
-.submit-button{
+.submit-button {
   margin-top: 1rem;
   width: 100%;
   outline: none;
   border: none;
-  background-color: #9336B4;
-  color:#fff;
+  background-color: #9336b4;
+  color: #fff;
   padding: 25px 35px;
   font-size: 1.1rem;
   font-weight: 700;
   border-radius: 5px;
-  transition: all .4s ease;
+  transition: all 0.4s ease;
   cursor: pointer;
 }
-.submit-button:hover{
+.submit-button:hover {
   background-color: var(--primary-color);
-
-  }
+}
+.css-1wwieyd-MuiGrid-root > .MuiGrid-item {
+  padding: 20px;
+}

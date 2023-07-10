@@ -131,7 +131,14 @@ const Navbar = () => {
       padding={"0 25px"}
       alignItems={"center"}
       width={"100%"}
-      sx={{ height: "100px", ...(scrollTop && !matches && { height: "0" }) }}
+      sx={{
+        height: "100px",
+        ...(scrollTop && !matches && { height: "0" }),
+        position: matches && "sticky",
+        top: "0",
+        zIndex: "99",
+        background: "#fff",
+      }}
     >
       {/* left navbar */}
       <ThemeProvider theme={myTheme}>

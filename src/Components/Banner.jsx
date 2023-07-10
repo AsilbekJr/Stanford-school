@@ -55,8 +55,18 @@ const Banner = () => {
             display: "flex",
             background: "linear-gradient(135deg, #8A49AA, #D25CA4)",
             width: "100%",
-            borderLeft: "25px solid #fff",
-            borderRight: "25px solid #fff",
+            borderLeft: {
+              lg: "25px solid #fff",
+              md: "20px solide #fff",
+              sm: "15px solid #fff",
+              xs: "0px",
+            },
+            borderRight: {
+              lg: "25px solid #fff",
+              md: "20px solide #fff",
+              sm: "15px solid #fff",
+              xs: "0px",
+            },
             padding: "0px 0 0 20px",
           }}
         >

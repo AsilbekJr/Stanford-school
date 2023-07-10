@@ -6,6 +6,7 @@ import {
   ThemeProvider,
   Typography,
   createTheme,
+  useMediaQuery,
 } from "@mui/material";
 import React from "react";
 import "../styles/Offer.css";
@@ -28,12 +29,21 @@ const Offer = () => {
     fontSize: "1.4rem",
     border: "1px solid #f4f4f4",
     borderRadius: "5px",
-    backgroundColor: "#c539b4",
+    backgroundColor: "#9336B4",
     color: "#fff",
-    marginRight: "1rem",
+    // marginRight: "1rem",
   };
-
+  // const matches = useMediaQuery("(max-width:938px)");
   const theme = createTheme({
+    breakpoints: {
+      values: {
+        xs: 0,
+        sm: 700,
+        md: 939,
+        lg: 1200,
+        xl: 1536,
+      },
+    },
     typography: {
       fontFamily: '"Montserrat", "sans-serif"',
     },
@@ -87,18 +97,27 @@ const Offer = () => {
     } else {
       // Render a countdown
       return (
-        <Box sx={{ marginTop: "3rem" }}>
-          <Box sx={{ padding: "1rem 0" }}>
+        <Box>
+          <Box
+            sx={{
+              padding: { lg: "1rem", md: "1rem", sm: "0", xs: "1rem" },
+            }}
+          >
             <Typography
               sx={{
                 textTransform: "uppercase",
                 fontWeight: "500",
-                fontSize: "2rem",
+                fontSize: {
+                  lg: "1.9rem",
+                  md: "1.7rem",
+                  sm: "1.5rem",
+                  xs: "1.3rem",
+                },
               }}
             >
               Qabul yopilishi
             </Typography>
-            <p style={{ margin: "1rem 0" }}>
+            <p style={{ margin: "1rem 0", color: "gray", fontWeight: "300" }}>
               Bizga qo'shiling va ingliz tilini tez va sifatli o'rganing!
             </p>
           </Box>
@@ -108,9 +127,10 @@ const Offer = () => {
               width: "100%",
               alignItems: "center",
               justifyContent: "center",
-              background: "#c539b4",
-              padding: "3rem",
+              background: "#9336B4",
+              height: "140px",
               borderRadius: "8px",
+              padding: "1rem",
             }}
           >
             {" "}
@@ -124,142 +144,264 @@ const Offer = () => {
     }
   };
   return (
-    <Container>
+    <Box
+      sx={{
+        padding: { lg: "0 1.4rem", md: "0 .3rem", xs: "0 6px", xs: "0 6px" },
+      }}
+    >
       <ThemeProvider theme={theme}>
         <Grid
           container
           mt={"4rem"}
+          spacing={2}
           // p={"0 2rem"}
           mb={4}
           width={"100%"}
-          display={"flex"}
-          justifyContent={"space-between"}
+          sx={{
+            flexDirection: {
+              lg: "row",
+              md: "row",
+              sm: "column-reverse",
+              xs: "column-reverse",
+            },
+          }}
         >
           <Grid
             item
             lg={6}
             md={6}
             sm={12}
-            display={"flex"}
-            flexDirection={"column"}
-            sx={{ width: "50%", flexWrap: "wrap" }}
+            xs={12}
+            sx={{
+              width: "100%",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
           >
-            <Box
-              margin={"0 0 3rem 0"}
-              display={"flex"}
-              justifyContent={"space-between"}
-            >
-              <Typography
+            <Grid container spacing={4} width={"100%"} sx={{ margin: "0" }}>
+              <Box
+                margin={"0 0 3rem 15px"}
                 sx={{
-                  fontWeight: "700",
-                  fontSize: "1.9rem",
-                  letterSpacing: "1px",
+                  width: { lg: "100%", md: "100%", sm: "550px", xs: "100%" },
                 }}
+                display={"flex"}
+                justifyContent={"space-between"}
               >
-                TAKLIFLARIMIZ
-              </Typography>
-              <button className="offer-btn">
-                <Typography fontWeight={"600"}>BARCHA</Typography>
-              </button>
-            </Box>
-            <Box
-              display={"flex"}
-              flexWrap={"wrap"}
-              justifyContent={"center"}
-              gap={"2rem"}
-            >
-              <Paper className="offer-paper" sx={{ width: "260px" }}>
-                <Box className="offer nchild1" position={"relative"}>
-                  <Box className="offerTitle">
-                    <h3>English for Beginners</h3>
-                    <h3>5$</h3>
-                    <p>Har bir dasr uchun</p>
+                <Typography
+                  sx={{
+                    fontWeight: "700",
+                    fontSize: {
+                      lg: "1.9rem",
+                      md: "1.7rem",
+                      sm: "1.5rem",
+                      xs: "1.3rem",
+                    },
+                    letterSpacing: "1px",
+                  }}
+                >
+                  TAKLIFLARIMIZ
+                </Typography>
+                <button className="offer-btn">
+                  <Typography sx={{ fontSize: ".85rem" }} fontWeight={"600"}>
+                    BARCHA
+                  </Typography>
+                </button>
+              </Box>
+              <Grid
+                item
+                lg={6}
+                md={6}
+                sm={6}
+                xs={12}
+                sx={{ "&.MuiGrid-item": { paddingTop: "0px" } }}
+              >
+                <Paper className="offer-paper">
+                  <Box className="offer nchild1" position={"relative"}>
+                    <Box className="offerTitle">
+                      <h3>English for Beginners</h3>
+                      <h3>5$</h3>
+                      <p>Har bir dasr uchun</p>
+                    </Box>
+                    <Box className="modal">
+                      <p>
+                        Boshlang'ich daraja uchun eng yaxshi ingliz kursimiz.
+                      </p>
+                    </Box>
                   </Box>
-                  <Box className="modal">
-                    <p>Boshlang'ich daraja uchun eng yaxshi ingliz kursimiz.</p>
+                </Paper>
+              </Grid>
+              <Grid
+                item
+                lg={6}
+                md={6}
+                sm={6}
+                xs={12}
+                sx={{ "&.MuiGrid-item": { paddingTop: "0px" } }}
+              >
+                <Paper className="offer-paper">
+                  <Box className="offer nchild2" position={"relative"}>
+                    <Box className="offerTitle">
+                      <h3>Online Learning</h3>
+                      <h3>3$</h3>
+                      <p>Har bir dasr uchun</p>
+                    </Box>
+                    <Box className="modal">
+                      <p>Masofaviy darslarni xoxlovchilar uchun.</p>
+                    </Box>
                   </Box>
-                </Box>
-              </Paper>
-              <Paper className="offer-paper" sx={{ width: "260px" }}>
-                <Box className="offer nchild2" position={"relative"}>
-                  <Box className="offerTitle">
-                    <h3>Online Learning</h3>
-                    <h3>3$</h3>
-                    <p>Har bir dasr uchun</p>
+                </Paper>
+              </Grid>
+              <Grid
+                item
+                lg={6}
+                md={6}
+                sm={6}
+                xs={12}
+                sx={{ "&.MuiGrid-item": { paddingTop: "0px" } }}
+              >
+                <Paper className="offer-paper">
+                  <Box className="offer nchild3" position={"relative"}>
+                    <Box className="offerTitle">
+                      <h3>English for Business</h3>
+                      <h3>10$</h3>
+                      <p>Har bir dasr uchun</p>
+                    </Box>
+                    <Box className="modal">
+                      <p>
+                        Menejerlar uchun mo'ljallangan biznes ingliz tili kursi.
+                      </p>
+                    </Box>
                   </Box>
-                  <Box className="modal">
-                    <p>Masofaviy darslarni xoxlovchilar uchun.</p>
+                </Paper>
+              </Grid>
+              <Grid
+                item
+                lg={6}
+                md={6}
+                sm={6}
+                xs={12}
+                sx={{ "&.MuiGrid-item": { paddingTop: "0px" } }}
+              >
+                <Paper className="offer-paper">
+                  <Box className="offer nchild4" position={"relative"}>
+                    <Box className="offerTitle">
+                      <h3>English for Kids</h3>
+                      <h3>2$</h3>
+                      <p>Har bir dasr uchun</p>
+                    </Box>
+                    <Box className="modal">
+                      <p>Bolalar uchun ingliz tilini oson o'rganish kursi.</p>
+                    </Box>
                   </Box>
-                </Box>
-              </Paper>
-              <Paper className="offer-paper" sx={{ width: "260px" }}>
-                <Box className="offer nchild3" position={"relative"}>
-                  <Box className="offerTitle">
-                    <h3>English for Business</h3>
-                    <h3>10$</h3>
-                    <p>Har bir dasr uchun</p>
-                  </Box>
-                  <Box className="modal">
-                    <p>
-                      Menejerlar uchun mo'ljallangan biznes ingliz tili kursi.
-                    </p>
-                  </Box>
-                </Box>
-              </Paper>
-              <Paper className="offer-paper" sx={{ width: "260px" }}>
-                <Box className="offer nchild4" position={"relative"}>
-                  <Box className="offerTitle">
-                    <h3>English for Kids</h3>
-                    <h3>2$</h3>
-                    <p>Har bir dasr uchun</p>
-                  </Box>
-                  <Box className="modal">
-                    <p>Bolalar uchun ingliz tilini oson o'rganish kursi.</p>
-                  </Box>
-                </Box>
-              </Paper>
-            </Box>
+                </Paper>
+              </Grid>
+            </Grid>
           </Grid>
+
           {/* Right side  banner */}
-          <Grid item lg={6} md={6} sm={12} width={"40%"}>
+
+          <Grid item lg={6} md={6} sm={12} xs={12}>
             <Box
               display={"flex"}
               flexDirection={"column"}
-              alignItems={"flex-end"}
-              sx={{ marginTop: "-150px" }}
+              sx={{
+                alignItems: {
+                  lg: "center",
+                  md: "flex-end",
+                  sm: "center",
+                  xs: "center",
+                },
+                width: "100%",
+
+                marginTop: {
+                  lg: "-100px",
+                  md: "-100px",
+                  sm: "1rem",
+                  xs: "1rem",
+                },
+              }}
             >
-              <Box
-                sx={{ width: { lg: "450px", md: "400px" } }}
+              <Grid
+                container
+                spacing={5}
+                sx={{
+                  marginRight: "auto",
+                  marginLeft: "auto",
+                  maxWidth: { lg: "450px", md: "380px", sm: "300" },
+                  display: "flex",
+                  justifyContent: {
+                    lg: "center",
+                    md: "flex-end",
+                    sm: "flex-end",
+                    xs: "flex-end",
+                  },
+                }}
                 bgcolor={"#fff"}
                 zIndex={"10"}
                 borderRadius={"7px"}
-                padding={"2rem 2.2rem"}
+                padding={{
+                  lg: "2rem 1rem",
+                  md: "1rem .5rem",
+                  sm: "1rem 4rem",
+                  xs: "1rem",
+                }}
               >
-                <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-                  <Typography
-                    sx={{
-                      fontWeight: "600",
-                      color: "#393646",
-                      fontSize: "1.7rem",
-                      letterSpacing: "1px",
-                    }}
+                {/* Left */}
+                <Grid
+                  item
+                  sx={{
+                    margin: "0",
+                    width: "100%",
+                    padding: "0",
+                    "&.MuiGrid-item": {
+                      padding: "10px",
+                    },
+                  }}
+                  lg={12}
+                  md={12}
+                  sm={6}
+                  xs={12}
+                >
+                  {/* offer header */}
+                  <Box
+                    sx={{ display: "flex", justifyContent: "space-between" }}
                   >
-                    Bizga qo'shiling
-                  </Typography>
-                  <img
-                    style={{ width: "25px", objectFit: "contain" }}
-                    src="./Img/pencil.png"
-                    alt="pencil"
-                  />
-                </Box>
-                <Box sx={{ "& > :not(style)": { m: 1 }, width: "100%" }}>
+                    <Typography
+                      sx={{
+                        fontWeight: "500",
+                        textTransform: "uppercase",
+                        color: "#393646",
+                        fontSize: {
+                          lg: "1.5rem",
+                          md: "1.3rem",
+                          sm: "1.1rem",
+                          xs: "1rem",
+                        },
+                        letterSpacing: "1px",
+                      }}
+                    >
+                      Bizga qo'shiling
+                    </Typography>
+                    <img
+                      style={{ width: "25px", objectFit: "contain" }}
+                      src="./Img/pencil.png"
+                      alt="pencil"
+                    />
+                  </Box>
+                  {/* end offer header */}
                   <Box className="inputItem">
                     <AccountCircleOutlined
                       sx={{
                         color: "action.active",
                         mr: 1,
                         my: 0.5,
-                        fontSize: "1.4rem",
+                        fontSize: {
+                          lg: "1.4rem",
+                          md: "1.3rem",
+                          sm: "1.2rem",
+                          xs: "1.2rem",
+                        },
                       }}
                     />
                     <TextField
@@ -278,7 +420,12 @@ const Offer = () => {
                         color: "action.active",
                         mr: 1,
                         my: 0.5,
-                        fontSize: "1.4rem",
+                        fontSize: {
+                          lg: "1.4rem",
+                          md: "1.3rem",
+                          sm: "1.2rem",
+                          xs: "1.2rem",
+                        },
                       }}
                     />
 
@@ -298,7 +445,12 @@ const Offer = () => {
                         color: "action.active",
                         mr: 1,
                         my: 0.5,
-                        fontSize: "1.4rem",
+                        fontSize: {
+                          lg: "1.4rem",
+                          md: "1.3rem",
+                          sm: "1.2rem",
+                          xs: "1.2rem",
+                        },
                       }}
                     />
 
@@ -312,15 +464,29 @@ const Offer = () => {
                       type="email"
                     />
                   </Box>
-                </Box>
-                <button className="submit-button"> YUBORISH </button>
-                <Countdown date={Date.now() + 80000000} renderer={renderer} />
-              </Box>
+                  <button className="submit-button"> YUBORISH </button>
+                </Grid>
+                {/* Right */}
+                <Grid
+                  item
+                  lg={12}
+                  md={12}
+                  sm={6}
+                  xs={12}
+                  sx={{
+                    "&.MuiGrid-item": {
+                      padding: "20px",
+                    },
+                  }}
+                >
+                  <Countdown date={Date.now() + 80000000} renderer={renderer} />
+                </Grid>
+              </Grid>
             </Box>
           </Grid>
         </Grid>
       </ThemeProvider>
-    </Container>
+    </Box>
   );
 };
 
