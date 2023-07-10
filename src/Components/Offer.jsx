@@ -175,7 +175,6 @@ const Offer = () => {
             sm={12}
             xs={12}
             sx={{
-              width: "100%",
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
@@ -315,7 +314,7 @@ const Offer = () => {
                   sm: "center",
                   xs: "center",
                 },
-                width: "100%",
+                marginX: { lg: "6rem", md: "3rem", sm: "0", xs: "0" },
 
                 marginTop: {
                   lg: "-100px",
