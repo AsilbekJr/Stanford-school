@@ -6,16 +6,19 @@ import {
   createTheme,
   useMediaQuery,
 } from "@mui/material";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import { Close, Menu } from "@mui/icons-material";
 import "../styles/Banner.css";
+import { ContextWrappeer, getElementTopPosition } from "../context/elementTop";
 
 const Banner = () => {
   const [scrollTop, setScrollTop] = useState(0);
   const [value, setValue] = React.useState("one");
   const [click, setClick] = React.useState(false);
+  const [viewerIsOpen, setViewerIsOpen] = useContext(getElementTopPosition);
+  console.log(viewerIsOpen);
   const theme = createTheme({
     typography: {
       fontFamily: '"Montserrat", "sans-serif"',
@@ -139,7 +142,7 @@ const Banner = () => {
             // className="hello"
           >
             {/* Sticky menu */}
-            {!matches && scrollTop <= 100 && (
+            {!matches && !viewerIsOpen && scrollTop <= 100 && (
               <Box className="dropMenuContainer">
                 <Box
                   sx={{ background: "#FFE79B", height: "100%" }}

@@ -146,7 +146,7 @@ const Offer = () => {
   return (
     <Box
       sx={{
-        padding: { lg: "0 1.4rem", md: "0 .3rem", xs: "0 6px", xs: "0 6px" },
+        padding: { lg: "0 1.4rem", md: "0 .3rem", xs: "0 6px" },
       }}
     >
       <ThemeProvider theme={theme}>
@@ -191,12 +191,12 @@ const Offer = () => {
               >
                 <Typography
                   sx={{
-                    fontWeight: "700",
+                    fontWeight: "600",
                     fontSize: {
                       lg: "1.9rem",
                       md: "1.7rem",
                       sm: "1.5rem",
-                      xs: "1.3rem",
+                      xs: "1rem",
                     },
                     letterSpacing: "1px",
                   }}

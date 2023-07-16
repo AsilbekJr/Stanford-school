@@ -12,8 +12,12 @@ import {
   createTheme,
   useMediaQuery,
 } from "@mui/material";
+import MyGallery from "./Components/MyGallery";
+import { getElementTopPosition } from "./context/elementTop";
+import ChoosReasons from "./Components/ChoosReasons";
 const App = () => {
   const [value, setValue] = React.useState("one");
+  const [viewerIsOpen, setViewerIsOpen] = useContext(getElementTopPosition);
   const theme = createTheme({
     breakpoints: {
       values: {
@@ -26,7 +30,6 @@ const App = () => {
     },
     typography: {
       fontFamily: '"Montserrat", "sans-serif"',
-      fontSize: 2,
     },
   });
   const matches = useMediaQuery("(max-width:939px)");
@@ -59,7 +62,7 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <Box sx={{ height: "100%" }}>
         <Navbar />
-        {!matches && scrollTop >= 100 && (
+        {!matches && !viewerIsOpen && scrollTop >= 100 && (
           <Box className="dropMenuContainer">
             <Box
               sx={{ background: "#FFE79B", height: "100%" }}
@@ -116,6 +119,8 @@ const App = () => {
         )}
         <Banner />
         <Offer />
+        <MyGallery />
+        <ChoosReasons />
       </Box>
     </ThemeProvider>
   );
