@@ -203,7 +203,7 @@ const Navbar = () => {
             {click ? (
               <Close sx={{ fontSize: "40px", color: "#000" }} />
             ) : (
-              <MenuIcon sx={{ fontSize: "35px", color: "#9f9f9" }} />
+              <MenuIcon sx={{ fontSize: "30px", color: "#9f9f9" }} />
             )}
           </IconButton>
         </Box>
@@ -272,18 +272,23 @@ const Navbar = () => {
                   display: { lg: "none", md: "none", sm: "flex", xs: "flex" },
                   color: "#27374D",
                   fontWeight: 400,
-                  fontSize: { lg: "1.2rem", md: "1rem" },
+                  fontSize: {
+                    lg: "1.2rem",
+                    md: "1rem",
+                    sm: ".9rem",
+                    xs: ".8rem",
+                  },
                   flexDirection: "column",
                 }}
                 gap={"1rem"}
               >
-                <Box display={"flex"} gap="1rem">
-                  <Room />
+                <Box sx={{ display: "flex", alignItems: "center" }} gap="1rem">
+                  <Room fontSize="small" sx={{ color: "gray" }} />
                   <p>Buxoro viloyat, G'ijduvon tuman, G'alaba k. 29-uy</p>
                 </Box>
-                <Box display={"flex"} gap="1rem">
-                  <Call />
-                  <p>+99 7397157</p>
+                <Box sx={{ display: "flex", alignItems: "center" }} gap="1rem">
+                  <Call fontSize="small" sx={{ color: "gray" }} />
+                  <p>+99899 739-71-57</p>
                 </Box>
               </Box>
             </Menu>

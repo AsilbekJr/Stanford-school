@@ -29,7 +29,10 @@ const MyGallery = () => {
     setIndex(index);
     setViewerIsOpen(true);
   };
-  const handleClose = () => setIndex(-1);
+  const handleClose = () => {
+    setIndex(-1);
+    setViewerIsOpen(false);
+  };
   const handleMovePrev = () => setIndex(prevIndex);
   const handleMoveNext = () => setIndex(nextIndex);
   return (

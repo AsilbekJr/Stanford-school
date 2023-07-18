@@ -100,7 +100,7 @@ const Offer = () => {
         <Box>
           <Box
             sx={{
-              padding: { lg: "1rem", md: "1rem", sm: "0", xs: "1rem" },
+              padding: { lg: "1rem 0", md: "1rem", sm: "0", xs: "1rem 0" },
             }}
           >
             <Typography
@@ -175,6 +175,9 @@ const Offer = () => {
             sm={12}
             xs={12}
             sx={{
+              "&.MuiGrid-item": {
+                padding: "20px 10px",
+              },
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
@@ -367,9 +370,7 @@ const Offer = () => {
                   xs={12}
                 >
                   {/* offer header */}
-                  <Box
-                    sx={{ display: "flex", justifyContent: "space-between" }}
-                  >
+                  <Box sx={{ display: "flex" }}>
                     <Typography
                       sx={{
                         fontWeight: "500",
@@ -478,7 +479,7 @@ const Offer = () => {
                   xs={12}
                   sx={{
                     "&.MuiGrid-item": {
-                      padding: "20px",
+                      padding: "20px 10px",
                     },
                   }}
                 >
