@@ -191,9 +191,11 @@ const Offer = () => {
                 }}
                 display={"flex"}
                 justifyContent={"space-between"}
+                alignItems={"center"}
               >
                 <Typography
                   sx={{
+                    padding: "20px",
                     fontWeight: "600",
                     fontSize: {
                       lg: "1.9rem",
@@ -207,7 +209,17 @@ const Offer = () => {
                   TAKLIFLARIMIZ
                 </Typography>
                 <button className="offer-btn">
-                  <Typography sx={{ fontSize: ".85rem" }} fontWeight={"600"}>
+                  <Typography
+                  // sx={{
+                  //   fontSize: {
+                  //     lg: ".85rem",
+                  //     md: ".85rem",
+                  //     sm: ".8rem",
+                  //     xs: ".7rem",
+                  //   },
+                  //   fontWeight: "500",
+                  // }}
+                  >
                     BARCHA
                   </Typography>
                 </button>
@@ -370,7 +382,9 @@ const Offer = () => {
                   xs={12}
                 >
                   {/* offer header */}
-                  <Box sx={{ display: "flex" }}>
+                  <Box
+                    sx={{ display: "flex", justifyContent: "space-between" }}
+                  >
                     <Typography
                       sx={{
                         fontWeight: "500",
@@ -388,7 +402,7 @@ const Offer = () => {
                       Bizga qo'shiling
                     </Typography>
                     <img
-                      style={{ width: "25px", objectFit: "contain" }}
+                      style={{ width: "23px", objectFit: "contain" }}
                       src="./Img/pencil.png"
                       alt="pencil"
                     />
