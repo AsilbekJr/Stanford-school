@@ -13,7 +13,6 @@ import Lightbox from "react-image-lightbox";
 import "react-image-lightbox/style.css";
 import { images } from "../data/images";
 import { getElementTopPosition } from "../context/elementTop";
-// import { Comment } from "@mui/icons-material";
 
 const MyGallery = () => {
   const [viewerIsOpen, setViewerIsOpen] = useContext(getElementTopPosition);
