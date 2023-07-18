@@ -5,9 +5,12 @@ import "./index.css";
 import { ContextWrappeer } from "./context/elementTop.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
+  <>
     <ContextWrappeer>
       <App />
     </ContextWrappeer>
-  </React.StrictMode>
+  </>
 );
+
+// "react-images": "^1.2.0-beta.7",
+// "react-photo-gallery": "^8.0.0",

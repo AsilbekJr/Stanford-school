@@ -2,35 +2,37 @@ import {
   Box,
   Divider,
   Grid,
-  IconButton,
   List,
   ListItem,
-  ListItemText,
   Paper,
   Typography,
 } from "@mui/material";
-import React, { useState, useCallback, useContext } from "react";
-import Gallery from "react-photo-gallery";
-import Carousel, { Modal, ModalGateway } from "react-images";
-import { photos } from "../data/slides";
+import React, { useState, useContext, useEffect } from "react";
+import { Gallery } from "react-grid-gallery";
+import Lightbox from "react-image-lightbox";
+import "react-image-lightbox/style.css";
+import { images } from "../data/images";
 import { getElementTopPosition } from "../context/elementTop";
-import { Comment } from "@mui/icons-material";
+// import { Comment } from "@mui/icons-material";
 
 const MyGallery = () => {
   const [viewerIsOpen, setViewerIsOpen] = useContext(getElementTopPosition);
 
-  const [currentImage, setCurrentImage] = useState(0);
+  const [index, setIndex] = useState(-1);
 
-  const openLightbox = useCallback((event, { photo, index }) => {
-    setCurrentImage(index);
+  const currentImage = images[index];
+  const nextIndex = (index + 1) % images.length;
+  const nextImage = images[nextIndex] || currentImage;
+  const prevIndex = (index + images.length - 1) % images.length;
+  const prevImage = images[prevIndex] || currentImage;
+
+  const handleClick = (index, item) => {
+    setIndex(index);
     setViewerIsOpen(true);
-  }, []);
-
-  const closeLightbox = () => {
-    setCurrentImage(0);
-    setViewerIsOpen(false);
   };
-
+  const handleClose = () => setIndex(-1);
+  const handleMovePrev = () => setIndex(prevIndex);
+  const handleMoveNext = () => setIndex(nextIndex);
   return (
     <Box className="container" bgcolor={"#f6f6f6"}>
       <Typography
@@ -53,21 +55,26 @@ const MyGallery = () => {
       <Grid container spacing={3} sx={{ padding: "3rem 0" }}>
         <Grid item lg={7} md={7} sm={12} xs={12}>
           <div>
-            <Gallery photos={photos} onClick={openLightbox} />
-            <ModalGateway>
-              {viewerIsOpen ? (
-                <Modal onClose={closeLightbox}>
-                  <Carousel
-                    currentIndex={currentImage}
-                    views={photos.map((x) => ({
-                      ...x,
-                      srcset: x.srcSet,
-                      caption: x.title,
-                    }))}
-                  />
-                </Modal>
-              ) : null}
-            </ModalGateway>
+            <Gallery
+              images={images}
+              onClick={handleClick}
+              enableImageSelection={false}
+            />
+            {!!currentImage && (
+              /* @ts-ignore */
+              <Lightbox
+                mainSrc={currentImage.original}
+                imageTitle={currentImage.caption}
+                mainSrcThumbnail={currentImage.src}
+                nextSrc={nextImage.original}
+                nextSrcThumbnail={nextImage.src}
+                prevSrc={prevImage.original}
+                prevSrcThumbnail={prevImage.src}
+                onCloseRequest={handleClose}
+                onMovePrevRequest={handleMovePrev}
+                onMoveNextRequest={handleMoveNext}
+              />
+            )}
           </div>
         </Grid>
         <Grid item lg={5} md={5} sm={12} xs={12}>
