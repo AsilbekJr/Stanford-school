@@ -51,26 +51,4 @@ export const images = [
     // tags: [{ value: "Nature", title: "Nature" }],
     // caption: "8H (gratisography.com)",
   },
-  // {
-  //   src: "https://c3.staticflickr.com/9/8583/28354353794_9f2d08d8c0_b.jpg",
-  //   original: "https://c3.staticflickr.com/9/8583/28354353794_9f2d08d8c0_b.jpg",
-  //   width: 320,
-  //   height: 290,
-  //   caption: "286H (gratisography.com)",
-  // },
-  // {
-  //   src: "https://c7.staticflickr.com/9/8569/28941134686_d57273d933_b.jpg",
-  //   original: "https://c7.staticflickr.com/9/8569/28941134686_d57273d933_b.jpg",
-  //   width: 420,
-  //   height: 148,
-  //   tags: [{ value: "People", title: "People" }],
-  //   caption: "315H (gratisography.com)",
-  // },
-  // {
-  //   src: "https://c6.staticflickr.com/9/8342/28897193381_800db6419e_b.jpg",
-  //   original: "https://c6.staticflickr.com/9/8342/28897193381_800db6419e_b.jpg",
-  //   width: 420,
-  //   height: 213,
-  //   caption: "201H (gratisography.com)",
-  // },
 ];

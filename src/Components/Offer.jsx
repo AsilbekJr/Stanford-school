@@ -209,19 +209,7 @@ const Offer = () => {
                   TAKLIFLARIMIZ
                 </Typography>
                 <button className="offer-btn">
-                  <Typography
-                  // sx={{
-                  //   fontSize: {
-                  //     lg: ".85rem",
-                  //     md: ".85rem",
-                  //     sm: ".8rem",
-                  //     xs: ".7rem",
-                  //   },
-                  //   fontWeight: "500",
-                  // }}
-                  >
-                    BARCHA
-                  </Typography>
+                  <Typography>BARCHA</Typography>
                 </button>
               </Box>
               <Grid

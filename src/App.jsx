@@ -15,6 +15,7 @@ import {
 import MyGallery from "./Components/MyGallery";
 import { getElementTopPosition } from "./context/elementTop";
 import ChoosReasons from "./Components/ChoosReasons";
+import OurTeachers from "./Components/OurTeachers";
 const App = () => {
   const [value, setValue] = React.useState("one");
   const [viewerIsOpen, setViewerIsOpen] = useContext(getElementTopPosition);
@@ -60,7 +61,7 @@ const App = () => {
   }, []);
   return (
     <ThemeProvider theme={theme}>
-      <Box sx={{ height: "100%" }}>
+      <Box>
         <Navbar />
         {!matches && !viewerIsOpen && scrollTop >= 100 && (
           <Box className="dropMenuContainer">
@@ -121,6 +122,7 @@ const App = () => {
         <Offer />
         <MyGallery />
         <ChoosReasons />
+        <OurTeachers />
       </Box>
     </ThemeProvider>
   );

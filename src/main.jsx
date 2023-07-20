@@ -11,6 +11,3 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     </ContextWrappeer>
   </>
 );
-
-// "react-images": "^1.2.0-beta.7",
-// "react-photo-gallery": "^8.0.0",
