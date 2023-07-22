@@ -17,6 +17,7 @@ import {
   PhoneOutlined,
 } from "@mui/icons-material";
 import Countdown from "react-countdown";
+import Header from "./Common/Header";
 
 const Offer = () => {
   const countDownStyle = {
@@ -193,21 +194,7 @@ const Offer = () => {
                 justifyContent={"space-between"}
                 alignItems={"center"}
               >
-                <Typography
-                  sx={{
-                    padding: "20px",
-                    fontWeight: "600",
-                    fontSize: {
-                      lg: "1.9rem",
-                      md: "1.7rem",
-                      sm: "1.5rem",
-                      xs: "1rem",
-                    },
-                    letterSpacing: "1px",
-                  }}
-                >
-                  TAKLIFLARIMIZ
-                </Typography>
+                <Header title={"TAKLIFLARIMIZ"} />
                 <button className="offer-btn">
                   <Typography>BARCHA</Typography>
                 </button>

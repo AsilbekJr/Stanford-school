@@ -13,6 +13,7 @@ import Lightbox from "react-image-lightbox";
 import "react-image-lightbox/style.css";
 import { images } from "../data/images";
 import { getElementTopPosition } from "../context/elementTop";
+import Header from "./Common/Header";
 
 const MyGallery = () => {
   const [viewerIsOpen, setViewerIsOpen] = useContext(getElementTopPosition);
@@ -37,23 +38,7 @@ const MyGallery = () => {
   const handleMoveNext = () => setIndex(nextIndex);
   return (
     <Box className="container" bgcolor={"#f6f6f6"}>
-      <Typography
-        sx={{
-          fontWeight: "600",
-          textTransform: "uppercase",
-          fontSize: {
-            lg: "1.9rem",
-            md: "1.7rem",
-            sm: "1.5rem",
-            xs: "1rem",
-          },
-          letterSpacing: "1px",
-        }}
-        variant="h1"
-      >
-        {" "}
-        Foto Galleriya
-      </Typography>
+      <Header title={"Galleriya"} />
       <Grid container spacing={3} sx={{ padding: "3rem 0" }}>
         <Grid item lg={7} md={7} sm={12} xs={12}>
           <div>

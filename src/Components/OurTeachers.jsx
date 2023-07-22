@@ -8,27 +8,12 @@ import "swiper/css/scrollbar";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "../styles/OurTeachers.css";
+import Header from "./Common/Header";
 const OurTeachers = () => {
   return (
     <Box className="container">
       <Box sx={{ marginBottom: "3rem" }}>
-        <Typography
-          sx={{
-            fontWeight: "600",
-            textTransform: "uppercase",
-            fontSize: {
-              lg: "1.9rem",
-              md: "1.7rem",
-              sm: "1.5rem",
-              xs: "1rem",
-            },
-            letterSpacing: "1px",
-          }}
-          variant="h1"
-        >
-          {" "}
-          O'qituvchilarimiz
-        </Typography>
+        <Header title={" O'qituvchilarimiz"} />
       </Box>
       <Swiper
         // install Swiper modules
@@ -140,7 +125,6 @@ const OurTeachers = () => {
             </Box>
           </Box>
         </SwiperSlide>
-        ...
       </Swiper>
     </Box>
   );

@@ -5,6 +5,7 @@ import Offer from "./Components/Offer";
 import { Close, Menu } from "@mui/icons-material";
 import {
   Box,
+  Container,
   IconButton,
   Tab,
   Tabs,
@@ -16,6 +17,7 @@ import MyGallery from "./Components/MyGallery";
 import { getElementTopPosition } from "./context/elementTop";
 import ChoosReasons from "./Components/ChoosReasons";
 import OurTeachers from "./Components/OurTeachers";
+import Statistics from "./Components/Statistics";
 const App = () => {
   const [value, setValue] = React.useState("one");
   const [viewerIsOpen, setViewerIsOpen] = useContext(getElementTopPosition);
@@ -61,69 +63,56 @@ const App = () => {
   }, []);
   return (
     <ThemeProvider theme={theme}>
-      <Box>
-        <Navbar />
-        {!matches && !viewerIsOpen && scrollTop >= 100 && (
-          <Box className="dropMenuContainer">
-            <Box
-              sx={{ background: "#FFE79B", height: "100%" }}
-              className={click ? "dropMenu" : "dropdown"}
-            >
-              <Box sx={{ width: "100%" }}>
-                <Tabs
-                  value={value}
-                  onChange={handleChange}
-                  textColor="secondary"
-                  indicatorColor="secondary"
-                  aria-label="secondary tabs example"
-                  TabIndicatorProps={{
-                    sx: {
-                      height: "3.5px",
-                      background: "#000",
-                    },
-                  }}
-                >
-                  <Tab
-                    sx={CustomTabContainer}
-                    value="one"
-                    label="BOSH SAHIFA"
-                  />
-                  <Tab
-                    sx={CustomTabContainer}
-                    value="two"
-                    label="QULAYLIKLAR"
-                  />
-                  <Tab
-                    sx={CustomTabContainer}
-                    value="three"
-                    label="BOG'LANISH"
-                  />
-                </Tabs>
-              </Box>
-            </Box>
-
-            <Box
-              sx={{ background: "#FFE79B" }}
-              display={"flex"}
-              alignItems={"center"}
-              height={"100%"}
-            >
-              <IconButton onClick={() => setClick(!click)} variant="outlined">
-                {click ? (
-                  <Close sx={{ fontSize: "50px", color: "#000" }} />
-                ) : (
-                  <Menu sx={{ fontSize: "50px", color: "#000" }} />
-                )}
-              </IconButton>
+      <Navbar />
+      {!matches && !viewerIsOpen && scrollTop >= 100 && (
+        <Box className="dropMenuContainer">
+          <Box
+            sx={{ background: "#FFE79B", height: "100%" }}
+            className={click ? "dropMenu" : "dropdown"}
+          >
+            <Box sx={{ width: "100%" }}>
+              <Tabs
+                value={value}
+                onChange={handleChange}
+                textColor="secondary"
+                indicatorColor="secondary"
+                aria-label="secondary tabs example"
+                TabIndicatorProps={{
+                  sx: {
+                    height: "3.5px",
+                    background: "#000",
+                  },
+                }}
+              >
+                <Tab sx={CustomTabContainer} value="one" label="BOSH SAHIFA" />
+                <Tab sx={CustomTabContainer} value="two" label="QULAYLIKLAR" />
+                <Tab sx={CustomTabContainer} value="three" label="BOG'LANISH" />
+              </Tabs>
             </Box>
           </Box>
-        )}
-        <Banner />
-        <Offer />
-        <MyGallery />
-        <ChoosReasons />
-        <OurTeachers />
-      </Box>
+
+          <Box
+            sx={{ background: "#FFE79B" }}
+            display={"flex"}
+            alignItems={"center"}
+            height={"100%"}
+          >
+            <IconButton onClick={() => setClick(!click)} variant="outlined">
+              {click ? (
+                <Close sx={{ fontSize: "50px", color: "#000" }} />
+              ) : (
+                <Menu sx={{ fontSize: "50px", color: "#000" }} />
+              )}
+            </IconButton>
+          </Box>
+        </Box>
+      )}
+      <Banner />
+      <Offer />
+      <MyGallery />
+      <ChoosReasons />
+      <OurTeachers />
+      <Statistics />
     </ThemeProvider>
   );
 };

@@ -2,27 +2,12 @@ import { Badge, Box, Grid, Typography } from "@mui/material";
 import React from "react";
 import "../styles/ChReasons.css";
 import { CheckCircle, Info, MenuBook, Paid } from "@mui/icons-material";
+import Header from "./Common/Header";
 
 const ChoosReasons = () => {
   return (
     <Box className="container">
-      <Typography
-        sx={{
-          fontWeight: "600",
-          textTransform: "uppercase",
-          fontSize: {
-            lg: "1.9rem",
-            md: "1.7rem",
-            sm: "1.5rem",
-            xs: "1rem",
-          },
-          letterSpacing: "1px",
-        }}
-        variant="h1"
-      >
-        {" "}
-        Bizni tanlab adashmaysiz !
-      </Typography>
+      <Header title={" Bizni tanlab adashmaysiz !"} />
       <Grid container spacing={3} sx={{ marginTop: "2rem", width: "100%" }}>
         <Grid
           item
