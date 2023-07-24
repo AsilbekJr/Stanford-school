@@ -166,13 +166,13 @@ const Navbar = () => {
             <Box display={"flex"} alignItems={"center"}>
               <Box
                 sx={{
-                  width: "28px",
+                  width: "42px",
                   margin: "0 .8rem 0 1rem",
                 }}
               >
                 <img
                   style={{ width: "100%" }}
-                  src="./Img/world.png"
+                  src="./Img/logo.png"
                   alt="navLogo"
                 />
               </Box>
@@ -182,7 +182,7 @@ const Navbar = () => {
                 sx={{
                   fontSize: ".9rem",
                 }}
-                color={"#C539B4"}
+                color={"#9b0587"}
               >
                 {" "}
                 STANFORD SCHOOL{" "}
@@ -210,7 +210,7 @@ const Navbar = () => {
         <Box display={"flex"} alignItems={"center"}>
           <Box
             sx={{
-              width: { lg: "40px", md: "36px", sm: "35px", xs: "26px" },
+              width: { lg: "70px", md: "60px", sm: "55px", xs: "46px" },
               marginRight: {
                 lg: "1rem",
                 md: ".9rem",
@@ -219,11 +219,7 @@ const Navbar = () => {
               },
             }}
           >
-            <img
-              style={{ width: "100%" }}
-              src="./Img/world.png"
-              alt="navLogo"
-            />
+            <img style={{ width: "100%" }} src="./Img/logo.png" alt="navLogo" />
           </Box>
           <Typography
             variant="h1"
@@ -231,7 +227,7 @@ const Navbar = () => {
             sx={{
               fontSize: { lg: "1.8rem", md: "1.4rem", sm: "1.3", xs: ".9rem" },
             }}
-            color={"#C539B4"}
+            color={"#9b0587"}
           >
             {" "}
             STANFORD SCHOOL{" "}

@@ -18,6 +18,7 @@ import { getElementTopPosition } from "./context/elementTop";
 import ChoosReasons from "./Components/ChoosReasons";
 import OurTeachers from "./Components/OurTeachers";
 import Statistics from "./Components/Statistics";
+import Footer from "./Components/Footer";
 const App = () => {
   const [value, setValue] = React.useState("one");
   const [viewerIsOpen, setViewerIsOpen] = useContext(getElementTopPosition);
@@ -113,6 +114,7 @@ const App = () => {
       <ChoosReasons />
       <OurTeachers />
       <Statistics />
+      <Footer />
     </ThemeProvider>
   );
 };

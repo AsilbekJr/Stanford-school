@@ -1,0 +1,9 @@
+.footerLogo {
+  border-radius: 50%;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease-in-out;
+}
+.footerLogo:hover {
+  box-shadow: rgba(155, 5, 135, 0.35) 0px 5px 15px;
+}
