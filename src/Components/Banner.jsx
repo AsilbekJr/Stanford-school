@@ -6,6 +6,7 @@ import {
   createTheme,
   useMediaQuery,
 } from "@mui/material";
+import Typewriter from "typewriter-effect";
 import React, { useState, useEffect, useContext } from "react";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
@@ -50,7 +51,7 @@ const Banner = () => {
   }, []);
   return (
     <ThemeProvider theme={theme}>
-      <Box sx={{ position: "relative", height: "100%" }}>
+      <Box sx={{ position: "relative" }}>
         <Box
           width={"100%"}
           sx={{
@@ -70,6 +71,7 @@ const Banner = () => {
               xs: "0px",
             },
             padding: "0px 0 0 20px",
+            height: { lg: "80vh", md: "75vh", sm: "60vh", xs: "60vh" },
           }}
         >
           <Box
@@ -127,7 +129,19 @@ const Banner = () => {
                 }}
               >
                 <span style={{ fontWeight: "400" }}>Ingliz tili</span>{" "}
-                mahoratingizni oshiring
+                <Typewriter
+                  options={{
+                    strings: [
+                      "bilimlarini puxta egallang",
+                      "mahoratingizni oshiring",
+                      "orqali dunyoni zapt eting :)",
+                    ],
+                    autoStart: true,
+                    loop: true,
+                    delay: 100,
+                    pauseFor: 3000,
+                  }}
+                />
               </Typography>
             </Box>
           </Box>
