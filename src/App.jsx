@@ -1,121 +1,27 @@
-import React, { useContext, useEffect, useState } from "react";
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import Home from "./Components/Menu/Home";
 import Navbar from "./Components/Navbar";
-import Banner from "./Components/Banner";
-import Offer from "./Components/Offer";
-import { Close, Menu } from "@mui/icons-material";
-import {
-  Box,
-  Container,
-  IconButton,
-  Tab,
-  Tabs,
-  ThemeProvider,
-  createTheme,
-  useMediaQuery,
-} from "@mui/material";
-import MyGallery from "./Components/MyGallery";
-import { getElementTopPosition } from "./context/elementTop";
-import ChoosReasons from "./Components/ChoosReasons";
-import OurTeachers from "./Components/OurTeachers";
-import Statistics from "./Components/Statistics";
+import Facilities from "./Components/Menu/Facilities";
+import ContactUs from "./Components/Menu/ContactUs";
+import { useLocation } from "react-router-dom";
+import NavbarMenu from "./Components/NavbarMenu";
 import Footer from "./Components/Footer";
 const App = () => {
-  const [value, setValue] = React.useState("one");
-  const [viewerIsOpen, setViewerIsOpen] = useContext(getElementTopPosition);
-  const theme = createTheme({
-    breakpoints: {
-      values: {
-        xs: 0,
-        sm: 600,
-        md: 940,
-        lg: 1200,
-        xl: 1536,
-      },
-    },
-    typography: {
-      fontFamily: '"Montserrat", "sans-serif"',
-    },
-  });
-  const matches = useMediaQuery("(max-width:939px)");
-  const [click, setClick] = React.useState(false);
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
-  const CustomTabContainer = {
-    lineHeight: "3rem",
-    fontSize: "1rem",
-    fontWeight: "600",
-    color: "#000",
-    "&.Mui-selected": {
-      color: "#000",
-    },
-  };
-  const [scrollTop, setScrollTop] = useState(0);
+  const location = useLocation();
+  const { pathname } = location;
+  const splitLocation = pathname.split("/");
 
-  useEffect(() => {
-    const handleScroll = (event) => {
-      setScrollTop(window.scrollY);
-    };
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
   return (
-    <ThemeProvider theme={theme}>
-      <Navbar />
-      {!matches && !viewerIsOpen && scrollTop >= 100 && (
-        <Box className="dropMenuContainer">
-          <Box
-            sx={{ background: "#FFE79B", height: "100%" }}
-            className={click ? "dropMenu" : "dropdown"}
-          >
-            <Box sx={{ width: "100%" }}>
-              <Tabs
-                value={value}
-                onChange={handleChange}
-                textColor="secondary"
-                indicatorColor="secondary"
-                aria-label="secondary tabs example"
-                TabIndicatorProps={{
-                  sx: {
-                    height: "3.5px",
-                    background: "#000",
-                  },
-                }}
-              >
-                <Tab sx={CustomTabContainer} value="one" label="BOSH SAHIFA" />
-                <Tab sx={CustomTabContainer} value="two" label="QULAYLIKLAR" />
-                <Tab sx={CustomTabContainer} value="three" label="BOG'LANISH" />
-              </Tabs>
-            </Box>
-          </Box>
-
-          <Box
-            sx={{ background: "#FFE79B" }}
-            display={"flex"}
-            alignItems={"center"}
-            height={"100%"}
-          >
-            <IconButton onClick={() => setClick(!click)} variant="outlined">
-              {click ? (
-                <Close sx={{ fontSize: "50px", color: "#000" }} />
-              ) : (
-                <Menu sx={{ fontSize: "50px", color: "#000" }} />
-              )}
-            </IconButton>
-          </Box>
-        </Box>
-      )}
-      <Banner />
-      <Offer />
-      <MyGallery />
-      <ChoosReasons />
-      <OurTeachers />
-      <Statistics />
+    <div>
+      {splitLocation[1] === "" ? <Navbar /> : <NavbarMenu />}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="facilities" element={<Facilities />} />
+        <Route path="contact" element={<ContactUs />} />
+      </Routes>
       <Footer />
-    </ThemeProvider>
+    </div>
   );
 };
 

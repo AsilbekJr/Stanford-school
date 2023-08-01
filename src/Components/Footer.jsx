@@ -11,6 +11,7 @@ import {
 import React from "react";
 import "../styles/Footer.css";
 import { Instagram, Telegram, YouTube } from "@mui/icons-material";
+import { Link } from "react-router-dom";
 const Footer = () => {
   let date = new Date();
   let year = date.getFullYear();
@@ -65,13 +66,25 @@ const Footer = () => {
               Tezkor o'tish
             </Typography>
             <List>
-              <ListItem>
+              <ListItem
+                component={Link}
+                to="/"
+                sx={{ marginBottom: "1rem", padding: "0 0 0 15px" }}
+              >
                 <ListItemText primary="Bosh sahifa" />
               </ListItem>
-              <ListItem>
+              <ListItem
+                component={Link}
+                to="facilities"
+                sx={{ marginBottom: "1rem", padding: "0 0 0 15px" }}
+              >
                 <ListItemText primary="Qulayliklar" />
               </ListItem>
-              <ListItem>
+              <ListItem
+                component={Link}
+                to="contact"
+                sx={{ marginBottom: "1rem", padding: "0 0 0 15px" }}
+              >
                 <ListItemText primary="Bog'lanish" />
               </ListItem>
             </List>

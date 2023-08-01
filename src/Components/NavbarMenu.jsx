@@ -9,6 +9,7 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import {
   Box,
+  Container,
   Divider,
   Drawer,
   IconButton,
@@ -25,10 +26,10 @@ import {
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import "../styles/Navbar.css";
-import { Link } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 const ITEM_HEIGHT = 48;
 
-const Navbar = () => {
+const NavbarMenu = () => {
   const [click, setClick] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
@@ -75,16 +76,6 @@ const Navbar = () => {
     setClick(!click);
   };
 
-  useEffect(() => {
-    const handleScroll = (event) => {
-      window.scrollY > 100 ? setScrollTop(true) : setScrollTop(false);
-    };
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
   const list = (anchor) => (
     <Box
       sx={{
@@ -125,6 +116,9 @@ const Navbar = () => {
     </Box>
   );
 
+  const location = useLocation();
+  const { pathname } = location;
+  const splitLocation = pathname.split("/");
   return (
     <Box
       display={"flex"}
@@ -135,10 +129,11 @@ const Navbar = () => {
       sx={{
         height: "100px",
         ...(scrollTop && !matches && { height: "0" }),
-        position: matches && "sticky",
+        position: "sticky",
         top: "0",
         zIndex: "99",
         background: "#fff",
+        boxShadow: "0 2px 2px -2px rgba(0,0,0,.2)",
       }}
     >
       {/* left navbar */}
@@ -168,8 +163,8 @@ const Navbar = () => {
               display={"flex"}
               alignItems={"center"}
               component={Link}
-              to={"/"}
               sx={{ textDecoration: "none" }}
+              to={"/"}
             >
               <Box
                 sx={{
@@ -214,32 +209,54 @@ const Navbar = () => {
             )}
           </IconButton>
         </Box>
-        <Box display={"flex"} alignItems={"center"}>
+        <Container>
           <Box
+            display={"flex"}
+            alignItems={"center"}
             sx={{
-              width: { lg: "70px", md: "60px", sm: "55px", xs: "46px" },
-              marginRight: {
-                lg: "1rem",
-                md: ".9rem",
-                sm: ".8rem",
-                xs: ".7rem",
+              justifyContent: {
+                lg: "left",
+                md: "left",
+                sm: "center",
+                xs: "center",
               },
             }}
           >
-            <img style={{ width: "100%" }} src="./Img/logo.png" alt="navLogo" />
+            <Box
+              sx={{
+                width: { lg: "70px", md: "60px", sm: "55px", xs: "46px" },
+                marginRight: {
+                  lg: "1rem",
+                  md: ".9rem",
+                  sm: ".8rem",
+                  xs: ".7rem",
+                },
+              }}
+            >
+              <img
+                style={{ width: "100%" }}
+                src="./Img/logo.png"
+                alt="navLogo"
+              />
+            </Box>
+            <Typography
+              variant="h1"
+              fontWeight={"700"}
+              sx={{
+                fontSize: {
+                  lg: "1.8rem",
+                  md: "1.4rem",
+                  sm: "1.3",
+                  xs: ".9rem",
+                },
+              }}
+              color={"#9b0587"}
+            >
+              {" "}
+              STANFORD SCHOOL{" "}
+            </Typography>
           </Box>
-          <Typography
-            variant="h1"
-            fontWeight={"700"}
-            sx={{
-              fontSize: { lg: "1.8rem", md: "1.4rem", sm: "1.3", xs: ".9rem" },
-            }}
-            color={"#9b0587"}
-          >
-            {" "}
-            STANFORD SCHOOL{" "}
-          </Typography>
-        </Box>
+        </Container>
 
         {/* right navbar */}
         {matches && (
@@ -298,27 +315,76 @@ const Navbar = () => {
           </div>
         )}
         {/* right navbar */}
-        <Box
-          sx={{
-            display: { lg: "flex", md: "flex", sm: "none", xs: "none" },
-            color: "#27374D",
-            fontWeight: 400,
-            fontSize: { lg: "1.2rem", md: "1rem" },
-          }}
-          gap={"1rem"}
-        >
-          <Box display={"flex"} gap="1rem">
-            <Room />
-            <p>Buxoro viloyat, G'ijduvon tuman, G'alaba k. 29-uy</p>
+        {!matches && (
+          <Box width={"45%"}>
+            <ul style={{ display: "flex", gap: "2rem", listStyle: "none" }}>
+              <li>
+                <Typography
+                  component={Link}
+                  to={"/"}
+                  sx={{
+                    textDecoration: "none",
+                    color: splitLocation[1] === "" ? "#000" : "#61677A",
+                    textTransform: "uppercase",
+                    fontWeight: "500",
+                    fontSize: "1rem",
+                    borderBottom:
+                      splitLocation[1] === ""
+                        ? "2px solid  #000"
+                        : "2px solid transparent",
+                    paddingBottom: "1rem",
+                  }}
+                >
+                  Bosh sahifa
+                </Typography>
+              </li>
+              <li>
+                <Typography
+                  component={Link}
+                  to={"facilities"}
+                  sx={{
+                    textDecoration: "none",
+                    color:
+                      splitLocation[1] === "facilities" ? "#000" : "#61677A",
+                    textTransform: "uppercase",
+                    fontWeight: "500",
+                    fontSize: "1rem",
+                    borderBottom:
+                      splitLocation[1] === "facilities"
+                        ? "2px solid  #000"
+                        : "2px solid transparent",
+                    paddingBottom: "1rem",
+                  }}
+                >
+                  qulayliklar
+                </Typography>
+              </li>
+              <li>
+                <Typography
+                  component={Link}
+                  to={"contact"}
+                  sx={{
+                    textDecoration: "none",
+                    color: splitLocation[1] === "contact" ? "#000" : "#61677A",
+                    textTransform: "uppercase",
+                    fontWeight: "500",
+                    fontSize: "1rem",
+                    borderBottom:
+                      splitLocation[1] === "contact"
+                        ? "2px solid  #000"
+                        : "2px solid transparent",
+                    paddingBottom: "1rem",
+                  }}
+                >
+                  bog'lanish
+                </Typography>
+              </li>
+            </ul>
           </Box>
-          <Box display={"flex"} gap="1rem">
-            <Call />
-            <p>+99 7397157</p>
-          </Box>
-        </Box>
+        )}
       </ThemeProvider>
     </Box>
   );
 };
 
-export default Navbar;
+export default NavbarMenu;

@@ -13,11 +13,12 @@ import Tab from "@mui/material/Tab";
 import { Close, Menu } from "@mui/icons-material";
 import "../styles/Banner.css";
 import { getElementTopPosition } from "../context/elementTop";
+import { Link } from "react-router-dom";
+import Dropdown from "./Common/Dropdown";
 
 const Banner = () => {
   const [scrollTop, setScrollTop] = useState(0);
   const [value, setValue] = React.useState("one");
-  const [click, setClick] = React.useState(false);
   const [viewerIsOpen, setViewerIsOpen] = useContext(getElementTopPosition);
   const theme = createTheme({
     typography: {
@@ -27,15 +28,6 @@ const Banner = () => {
   });
   const handleChange = (event, newValue) => {
     setValue(newValue);
-  };
-  const CustomTabContainer = {
-    lineHeight: "3rem",
-    fontSize: "1rem",
-    fontWeight: "600",
-    color: "#000",
-    "&.Mui-selected": {
-      color: "#000",
-    },
   };
 
   const matches = useMediaQuery("(max-width:939px)");
@@ -71,7 +63,7 @@ const Banner = () => {
               xs: "0px",
             },
             padding: "0px 0 0 20px",
-            height: { lg: "80vh", md: "75vh", sm: "60vh", xs: "60vh" },
+            height: { lg: "80vh", md: "75vh", sm: "55vh", xs: "50vh" },
           }}
         >
           <Box
@@ -81,13 +73,11 @@ const Banner = () => {
             }}
             display={"flex"}
             alignItems={"center"}
-            justifyContent={"center"}
             flexDirection={"column"}
           >
             <Box
               display={"flex"}
               alignItems={"center"}
-              justifyContent={"center"}
               flexDirection={"column"}
               color="#fff"
               sx={{
@@ -156,62 +146,7 @@ const Banner = () => {
           >
             {/* Sticky menu */}
             {!matches && !viewerIsOpen && scrollTop <= 100 && (
-              <Box className="dropMenuContainer">
-                <Box
-                  sx={{ background: "#FFE79B", height: "100%" }}
-                  className={click ? "dropMenu" : "dropdown"}
-                >
-                  <Box sx={{ width: "100%" }}>
-                    <Tabs
-                      value={value}
-                      onChange={handleChange}
-                      textColor="secondary"
-                      indicatorColor="secondary"
-                      aria-label="secondary tabs example"
-                      TabIndicatorProps={{
-                        sx: {
-                          height: "3.5px",
-                          background: "#000",
-                        },
-                      }}
-                    >
-                      <Tab
-                        sx={CustomTabContainer}
-                        value="one"
-                        label="BOSH SAHIFA"
-                      />
-                      <Tab
-                        sx={CustomTabContainer}
-                        value="two"
-                        label="QULAYLIKLAR"
-                      />
-                      <Tab
-                        sx={CustomTabContainer}
-                        value="three"
-                        label="BOG'LANISH"
-                      />
-                    </Tabs>
-                  </Box>
-                </Box>
-
-                <Box
-                  sx={{ background: "#FFE79B" }}
-                  display={"flex"}
-                  alignItems={"center"}
-                  height={"100%"}
-                >
-                  <IconButton
-                    onClick={() => setClick(!click)}
-                    variant="outlined"
-                  >
-                    {click ? (
-                      <Close sx={{ fontSize: "50px", color: "#000" }} />
-                    ) : (
-                      <Menu sx={{ fontSize: "50px", color: "#000" }} />
-                    )}
-                  </IconButton>
-                </Box>
-              </Box>
+              <Dropdown handleChange={handleChange} value={value} />
             )}
             <Box
               sx={{
