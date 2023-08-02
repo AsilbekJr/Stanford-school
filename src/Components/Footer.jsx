@@ -42,8 +42,9 @@ const Footer = () => {
           >
             <Box
               sx={{
-                width: { lg: "200px", md: "200px", sm: "170px", xs: "150px" },
+                width: { lg: "200px", md: "200px", sm: "140px", xs: "80px" },
                 borderRadius: "50%",
+                paddingLeft: "15px",
               }}
             >
               <img
@@ -69,21 +70,36 @@ const Footer = () => {
               <ListItem
                 component={Link}
                 to="/"
-                sx={{ marginBottom: "1rem", padding: "0 0 0 15px" }}
+                sx={{
+                  marginBottom: "1rem",
+                  padding: "0 0 0 15px",
+                  color: "#000",
+                  textDecoration: "none",
+                }}
               >
                 <ListItemText primary="Bosh sahifa" />
               </ListItem>
               <ListItem
                 component={Link}
                 to="facilities"
-                sx={{ marginBottom: "1rem", padding: "0 0 0 15px" }}
+                sx={{
+                  marginBottom: "1rem",
+                  padding: "0 0 0 15px",
+                  color: "#000",
+                  textDecoration: "none",
+                }}
               >
                 <ListItemText primary="Qulayliklar" />
               </ListItem>
               <ListItem
                 component={Link}
                 to="contact"
-                sx={{ marginBottom: "1rem", padding: "0 0 0 15px" }}
+                sx={{
+                  marginBottom: "1rem",
+                  padding: "0 0 0 15px",
+                  color: "#000",
+                  textDecoration: "none",
+                }}
               >
                 <ListItemText primary="Bog'lanish" />
               </ListItem>
@@ -100,7 +116,7 @@ const Footer = () => {
                 textAlign: "center",
               }}
             >
-              Bizni kuzatib borings
+              Bizni kuzatib boring
             </Typography>
             <Box
               display={"flex"}

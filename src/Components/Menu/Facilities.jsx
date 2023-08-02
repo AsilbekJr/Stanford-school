@@ -7,7 +7,7 @@ const Facilities = () => {
     <>
       <Box
         sx={{
-          height: "500px",
+          height: { lg: "500px", md: "480px", sm: "400px", xs: "350px" },
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -17,7 +17,7 @@ const Facilities = () => {
       >
         <Box
           sx={{
-            fontSize: { lg: "4rem", md: "3.5rem", sm: "2.5rem", xs: "2rem" },
+            fontSize: { lg: "4rem", md: "3.5rem", sm: "2.5rem", xs: "1.5rem" },
             fontWeight: "700",
             textAlign: "center",
             textTransform: "uppercase",
@@ -29,7 +29,7 @@ const Facilities = () => {
       <Box
         sx={{
           backgroundColor: "#00c4cc",
-          minHeight: matches ? "370px" : "420px",
+          minHeight: matches ? "350px" : "420px",
         }}
       >
         <Container maxWidth={"lg"}>
@@ -39,7 +39,7 @@ const Facilities = () => {
                 lg: "2rem 3rem",
                 md: "2rem 3rem",
                 sm: "1rem 2rem",
-                xs: "1rem 2rem",
+                xs: "1rem 1rem",
               },
               textAlign: "center",
               backgroundColor: "#fff",
@@ -52,11 +52,13 @@ const Facilities = () => {
               fontSize: {
                 lg: "1.7rem",
                 md: "1.5rem",
-                sm: "1.3rem",
-                xs: "1.1rem",
+                sm: "1.1rem",
+                xs: ".8rem",
               },
-              fontWeight: "700",
+              fontWeight: { lg: "700", md: "600", sm: "600", xs: "600" },
               transform: "translateY(-50%)",
+              borderRadius: "5px",
+              boxShadow: "rgba(17, 17, 26, 0.1) 0px 0px 16px",
             }}
           >
             Tajribali ustozlardan bilim olish
@@ -72,14 +74,31 @@ const Facilities = () => {
               alignItems={"center"}
               justifyContent={"center"}
             >
-              <img
-                style={{
-                  width: matches ? "150px" : "200px",
-                  objectFit: "cover",
+              <Box
+                sx={{
+                  width: { lg: "200px", md: "200px", sm: "150px", xs: "110px" },
+                  padding: { lg: "1rem", md: "1rem", sm: ".8rem", xs: ".7rem" },
+                  borderRadius: "7px",
+
+                  border: {
+                    lg: "5px solid #fff",
+                    md: "5px solid #fff",
+                    sm: "3px solid #fff",
+                    xs: "3px solid #fff",
+                  },
+                  boxShadow:
+                    "rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px",
                 }}
-                src="./Img/teacher.png"
-                alt="teacher"
-              />
+              >
+                <img
+                  style={{
+                    width: "100%",
+                    objectFit: "cover",
+                  }}
+                  src="./Img/teacher.png"
+                  alt="teacher"
+                />
+              </Box>
             </Grid>
             <Grid item lg={8} md={8} sm={12} xs={12}>
               <Box
@@ -88,9 +107,9 @@ const Facilities = () => {
                     lg: "2rem",
                     md: "1.8rem",
                     sm: "1.2rem",
-                    xs: "1rem",
+                    xs: ".9rem",
                   },
-                  fontWeight: "400",
+                  fontWeight: { lg: "400", ms: "400", sm: "600", xs: "600" },
                   color: "#fff",
                 }}
               >
@@ -105,7 +124,7 @@ const Facilities = () => {
       <Box
         sx={{
           backgroundColor: "#ffcc00",
-          minHeight: matches ? "370px" : "420px",
+          minHeight: matches ? "350px" : "420px",
         }}
       >
         <Container maxWidth={"lg"}>
@@ -115,7 +134,7 @@ const Facilities = () => {
                 lg: "2rem 3rem",
                 md: "2rem 3rem",
                 sm: "1rem 2rem",
-                xs: "1rem 2rem",
+                xs: "1rem 1rem",
               },
               textAlign: "center",
               backgroundColor: "#fff",
@@ -128,11 +147,13 @@ const Facilities = () => {
               fontSize: {
                 lg: "1.7rem",
                 md: "1.5rem",
-                sm: "1.3rem",
-                xs: "1.1rem",
+                sm: "1.1rem",
+                xs: ".8rem",
               },
-              fontWeight: "700",
+              fontWeight: { lg: "700", md: "600", sm: "600", xs: "600" },
               transform: "translateY(-50%)",
+              borderRadius: "5px",
+              boxShadow: "rgba(17, 17, 26, 0.1) 0px 0px 16px",
             }}
           >
             Ingliz tili muloqot muhiti
@@ -154,14 +175,30 @@ const Facilities = () => {
               alignItems={"center"}
               justifyContent={"center"}
             >
-              <img
-                style={{
-                  width: matches ? "150px" : "200px",
-                  objectFit: "cover",
+              <Box
+                sx={{
+                  width: { lg: "200px", md: "200px", sm: "150px", xs: "110px" },
+                  padding: { lg: "1rem", md: "1rem", sm: ".8rem", xs: ".7rem" },
+                  borderRadius: "7px",
+                  border: {
+                    lg: "5px solid #fff",
+                    md: "5px solid #fff",
+                    sm: "3px solid #fff",
+                    xs: "3px solid #fff",
+                  },
+                  boxShadow:
+                    "rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px",
                 }}
-                src="./Img/talking.png"
-                alt="comunication"
-              />
+              >
+                <img
+                  style={{
+                    width: "100%",
+                    objectFit: "cover",
+                  }}
+                  src="./Img/talking.png"
+                  alt="comunication"
+                />
+              </Box>
             </Grid>
             <Grid item lg={8} md={8} sm={12} xs={12}>
               <Box
@@ -172,7 +209,7 @@ const Facilities = () => {
                     sm: "1.2rem",
                     xs: "1rem",
                   },
-                  fontWeight: "400",
+                  fontWeight: { lg: "400", ms: "400", sm: "600", xs: "600" },
                   color: "#000",
                 }}
               >
@@ -187,7 +224,7 @@ const Facilities = () => {
       <Box
         sx={{
           backgroundColor: "#00c4cc",
-          minHeight: matches ? "370px" : "420px",
+          minHeight: matches ? "350px" : "420px",
         }}
       >
         <Container maxWidth={"lg"}>
@@ -197,7 +234,7 @@ const Facilities = () => {
                 lg: "2rem 3rem",
                 md: "2rem 3rem",
                 sm: "1rem 2rem",
-                xs: "1rem 2rem",
+                xs: "1rem 1rem",
               },
               textAlign: "center",
               backgroundColor: "#fff",
@@ -210,11 +247,13 @@ const Facilities = () => {
               fontSize: {
                 lg: "1.7rem",
                 md: "1.5rem",
-                sm: "1.3rem",
-                xs: "1.1rem",
+                sm: "1.1rem",
+                xs: ".8rem",
               },
-              fontWeight: "700",
+              fontWeight: { lg: "700", md: "600", sm: "600", xs: "600" },
               transform: "translateY(-50%)",
+              borderRadius: "5px",
+              boxShadow: "rgba(17, 17, 26, 0.1) 0px 0px 16px",
             }}
           >
             istalgan payt savollarga javob olish
@@ -236,14 +275,31 @@ const Facilities = () => {
               alignItems={"center"}
               justifyContent={"center"}
             >
-              <img
-                style={{
-                  width: matches ? "150px" : "200px",
-                  objectFit: "cover",
+              <Box
+                sx={{
+                  width: { lg: "200px", md: "200px", sm: "150px", xs: "110px" },
+                  padding: { lg: "1rem", md: "1rem", sm: ".8rem", xs: ".7rem" },
+                  borderRadius: "7px",
+
+                  border: {
+                    lg: "5px solid #fff",
+                    md: "5px solid #fff",
+                    sm: "3px solid #fff",
+                    xs: "3px solid #fff",
+                  },
+                  boxShadow:
+                    "rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px",
                 }}
-                src="./Img/support.png"
-                alt="comunication"
-              />
+              >
+                <img
+                  style={{
+                    width: "100%",
+                    objectFit: "cover",
+                  }}
+                  src="./Img/support.png"
+                  alt="comunication"
+                />
+              </Box>
             </Grid>
             <Grid item lg={8} md={8} sm={12} xs={12}>
               <Box
@@ -252,9 +308,9 @@ const Facilities = () => {
                     lg: "2rem",
                     md: "1.8rem",
                     sm: "1.2rem",
-                    xs: "1rem",
+                    xs: ".9rem",
                   },
-                  fontWeight: "400",
+                  fontWeight: { lg: "400", ms: "400", sm: "600", xs: "600" },
                   color: "#fff",
                 }}
               >
