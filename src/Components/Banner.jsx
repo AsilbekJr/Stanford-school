@@ -1,6 +1,5 @@
 import {
   Box,
-  IconButton,
   ThemeProvider,
   Typography,
   createTheme,
@@ -8,12 +7,8 @@ import {
 } from "@mui/material";
 import Typewriter from "typewriter-effect";
 import React, { useState, useEffect, useContext } from "react";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
-import { Close, Menu } from "@mui/icons-material";
 import "../styles/Banner.css";
 import { getElementTopPosition } from "../context/elementTop";
-import { Link } from "react-router-dom";
 import Dropdown from "./Common/Dropdown";
 
 const Banner = () => {

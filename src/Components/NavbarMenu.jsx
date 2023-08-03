@@ -178,6 +178,7 @@ const NavbarMenu = () => {
                   alt="navLogo"
                 />
               </Box>
+
               <Typography
                 variant="h1"
                 fontWeight={"900"}
@@ -213,7 +214,10 @@ const NavbarMenu = () => {
           <Box
             display={"flex"}
             alignItems={"center"}
+            component={Link}
+            to={"/"}
             sx={{
+              textDecoration: "none",
               justifyContent: {
                 lg: "left",
                 md: "left",

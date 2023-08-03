@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import Home from "./Components/Menu/Home";
 import Navbar from "./Components/Navbar";
@@ -11,6 +11,14 @@ const App = () => {
   const location = useLocation();
   const { pathname } = location;
   const splitLocation = pathname.split("/");
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  }, [pathname]);
 
   return (
     <div>
