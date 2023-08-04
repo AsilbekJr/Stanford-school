@@ -130,13 +130,15 @@ const MyGallery = () => {
                       </Typography>
                     }
                   >
-                    <Typography fontSize={"1rem"}>Personal Lessons</Typography>
+                    <Typography fontSize={"1rem"}>
+                      Individual Lessons
+                    </Typography>
                   </ListItem>
                   <ListItem
                     disableGutters
                     secondaryAction={
                       <Typography sx={{ fontSize: "1rem", color: "gray" }}>
-                        8$
+                        10$
                       </Typography>
                     }
                   >
@@ -150,6 +152,8 @@ const MyGallery = () => {
                       fontSize: ".8rem",
                       textAlign: "center",
                       marginTop: "1rem",
+                      color: "gray",
+                      fontStyle: "italic",
                     }}
                   >
                     Bir dars uchun!!!

@@ -125,37 +125,54 @@ const Footer = () => {
               gap={"2rem"}
             >
               <Box>
-                <Telegram
-                  sx={{
-                    color: "#808080",
-                    fontSize: "27px",
-                    cursor: "pointer",
-                    ":hover": { color: "#068FFF" },
-                    transition: "all .3s ",
-                  }}
-                />
+                <Link
+                  to={"https://t.me/stanfordschoolofficial"}
+                  target="_blank"
+                >
+                  <Telegram
+                    sx={{
+                      color: "#808080",
+                      fontSize: "27px",
+                      cursor: "pointer",
+                      ":hover": { color: "#068FFF" },
+                      transition: "all .3s ",
+                    }}
+                  />
+                </Link>
               </Box>
               <Box>
-                <YouTube
-                  sx={{
-                    color: "#808080",
-                    fontSize: "27px",
-                    cursor: "pointer",
-                    ":hover": { color: "#FF1E00" },
-                    transition: "all .3s ",
-                  }}
-                />
+                <Link
+                  to={"https://youtube.com/@stanfordlearningcentre"}
+                  target="_blank"
+                >
+                  <YouTube
+                    sx={{
+                      color: "#808080",
+                      fontSize: "27px",
+                      cursor: "pointer",
+                      ":hover": { color: "#FF1E00" },
+                      transition: "all .3s ",
+                    }}
+                  />
+                </Link>
               </Box>
               <Box>
-                <Instagram
-                  sx={{
-                    color: "#808080",
-                    fontSize: "27px",
-                    cursor: "pointer",
-                    ":hover": { color: "#bb298e" },
-                    transition: "all .3s ",
-                  }}
-                />
+                <Link
+                  to={
+                    "https://www.instagram.com/stanfordschool_official/?utm_source=qr"
+                  }
+                  target="_blank"
+                >
+                  <Instagram
+                    sx={{
+                      color: "#808080",
+                      fontSize: "27px",
+                      cursor: "pointer",
+                      ":hover": { color: "#bb298e" },
+                      transition: "all .3s ",
+                    }}
+                  />
+                </Link>
               </Box>
             </Box>
           </Grid>

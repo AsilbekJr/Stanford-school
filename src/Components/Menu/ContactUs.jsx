@@ -1,17 +1,9 @@
 import React from "react";
 import { Box, Container, Grid, Typography, useMediaQuery } from "@mui/material";
-import GoogleMapReact from "google-map-react";
+// import GoogleMapReact from "google-map-react";
+import Map from "react-map-gl";
 
 const ContactUs = () => {
-  const matches = useMediaQuery("(max-width:938px)");
-  const AnyReactComponent = ({ text }) => <div>{text}</div>;
-  const defaultProps = {
-    center: {
-      lat: 40.097191310255056,
-      lng: 64.68007380429972,
-    },
-    zoom: 11,
-  };
   return (
     <>
       <Box
@@ -147,27 +139,24 @@ const ContactUs = () => {
                     fontWeight: "500",
                   }}
                 >
-                  <Box>Buxoro viloyati, G'ijduvon tuman</Box>
-                  <Box>G'alaba ko'chasi, 29-uy</Box>
+                  <Box>+998997397157</Box>
+                  <Box>+998973007157</Box>
                 </Box>
               </Box>
             </Grid>
           </Grid>
         </Container>
         <Box sx={{ margin: "4rem 0 0 0 " }}>
-          <div style={{ height: "40vh", width: "100%" }}>
-            <GoogleMapReact
-              bootstrapURLKeys={{ key: "" }}
-              defaultCenter={defaultProps.center}
-              defaultZoom={defaultProps.zoom}
-            >
-              <AnyReactComponent
-                lat={40.097191310255056}
-                lng={64.68007380429972}
-                // text="Stanford School"
-              />
-            </GoogleMapReact>
-          </div>
+          <Map
+            mapboxAccessToken="pk.eyJ1IjoiYXNpbGJla2pyIiwiYSI6ImNrczdoYzMybzNoOTcycXM3ZDR2cmI3bGYifQ.6p2OnMjAjcmgjQhXT_SBDQ"
+            initialViewState={{
+              longitude: 64.680503,
+              latitude: 40.096469,
+              zoom: 14,
+            }}
+            style={{ width: "100%", height: 400 }}
+            mapStyle="mapbox://styles/mapbox/streets-v9"
+          />
         </Box>
       </Box>
     </>

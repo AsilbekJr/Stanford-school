@@ -36,7 +36,7 @@ const Statistics = () => {
                   fontWeight: "300",
                 }}
               >
-                <CountUp end={15} duration={5} />
+                <CountUp end={6} duration={5} />
                 <Typography
                   sx={{
                     fontSize: {
@@ -110,7 +110,7 @@ const Statistics = () => {
                   fontWeight: "300",
                 }}
               >
-                <CountUp end={8} duration={5} />
+                <CountUp end={5} duration={5} />
                 <Typography
                   sx={{
                     fontSize: {

@@ -65,6 +65,36 @@
   transition: all 0.4s;
   background-position: top;
 }
+.nchild5 {
+  width: 100%;
+  overflow: hidden;
+  height: 280px;
+  background: linear-gradient(
+      0deg,
+      rgba(45, 32, 39, 0.259),
+      rgba(21, 17, 17, 0.273)
+    ),
+    url("https://images.mini-ielts.com/images/1/18/tourism.jpg");
+  background-size: cover;
+  border-radius: 5px;
+  transition: all 0.4s;
+  background-position: top;
+}
+.nchild6 {
+  width: 100%;
+  overflow: hidden;
+  height: 280px;
+  background: linear-gradient(
+      0deg,
+      rgba(45, 32, 39, 0.259),
+      rgba(21, 17, 17, 0.273)
+    ),
+    url("https://uldforparents.com/wp-content/uploads/2016/07/ieps-hero.jpg");
+  background-size: cover;
+  border-radius: 5px;
+  transition: all 0.4s;
+  background-position: top;
+}
 .offer:hover {
   background-position: center;
   /* transform: scale(.9); */
@@ -96,6 +126,7 @@
   background-color: #fff;
   padding: 30px;
   transition: all 0.4s;
+  width: 100%;
 }
 .offer:hover .modal {
   transform: translateY(0);
