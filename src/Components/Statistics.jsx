@@ -14,7 +14,7 @@ const Statistics = () => {
         p={"20px 20px 3rem 20px"}
         sx={{
           background:
-            "linear-gradient(rgba(109,6,132,0.9128501400560224), rgba(109,6,132,0.9128501400560224)), url('https://static.vecteezy.com/system/resources/previews/020/277/209/original/learning-english-doodle-set-language-school-in-sketch-style-online-language-education-course-hand-drawn-illustration-isolated-on-white-background-vector.jpg') no-repeat center center/cover",
+            "linear-gradient(rgba(109,6,132,0.9128501400560224), rgba(109,6,132,0.9128501400560224)), url('https://www.offlinepost.gr/wp-content/uploads/2022/04/english-language-banner-english-language-hand-drawn-doodles-lettering-white-background-education-banner-vector-illustration-134412767.jpg') no-repeat center center/cover",
           color: "#fff",
           display: "flex",
           alignItems: "center",

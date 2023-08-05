@@ -26,3 +26,49 @@ body {
     padding: 2rem 1rem;
   }
 }
+
+/* Animation  */
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  margin: 10px;
+}
+
+section {
+  height: 500px;
+  background-color: lightcoral;
+}
+
+.fadeIn {
+  animation: 0.5s fadeIn forwards;
+}
+
+.fadeOut {
+  animation: 0.5s fadeOut forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(0, -10px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+  to {
+    transform: translate(0, -10px);
+    opacity: 0;
+  }
+}

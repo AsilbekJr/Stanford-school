@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import Home from "./Components/Menu/Home";
 import Navbar from "./Components/Navbar";
@@ -12,6 +12,13 @@ const App = () => {
   const { pathname } = location;
   const splitLocation = pathname.split("/");
 
+  const [displayLocation, setDisplayLocation] = useState(location);
+  const [transitionStage, setTransistionStage] = useState("fadeIn");
+
+  useEffect(() => {
+    if (location !== displayLocation) setTransistionStage("fadeOut");
+  }, [location, displayLocation]);
+
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -21,9 +28,17 @@ const App = () => {
   }, [pathname]);
 
   return (
-    <div>
+    <div
+      className={`${transitionStage}`}
+      onAnimationEnd={() => {
+        if (transitionStage === "fadeOut") {
+          setTransistionStage("fadeIn");
+          setDisplayLocation(location);
+        }
+      }}
+    >
       {splitLocation[1] === "" ? <Navbar /> : <NavbarMenu />}
-      <Routes>
+      <Routes location={displayLocation}>
         <Route path="/" element={<Home />} />
         <Route path="facilities" element={<Facilities />} />
         <Route path="contact" element={<ContactUs />} />
