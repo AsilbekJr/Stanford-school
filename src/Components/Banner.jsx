@@ -155,7 +155,7 @@ const Banner = () => {
               }}
             >
               <img
-                src="./Img/banner.png"
+                src="https://res.cloudinary.com/dkmi1dgqv/image/upload/v1691904732/Stanford%20english/banner_as8xbs.png"
                 style={{ width: "100%", objectFit: "contain" }}
                 alt="banner"
               />
